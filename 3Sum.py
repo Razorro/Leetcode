@@ -48,7 +48,8 @@ class Solution:
                     middle += 1
                 else:
                     ret.append([nums[left], nums[middle], nums[right]])
-                    while middle < right and nums[middle] == nums[middle+1]: middle += 1        # advance middle value, break the balance
+                    # advance middle value, break the balance
+                    while middle < right and nums[middle] == nums[middle+1]: middle += 1
                     middle += 1
 
             while left < len(nums)-2 and nums[left] == nums[left+1]: left += 1
