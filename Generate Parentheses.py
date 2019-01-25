@@ -16,7 +16,8 @@ Very slow ...
 Runtime: 360 ms, faster than 0.99% of Python3 online submissions for Generate Parentheses.
 
 
-Take a look at others' answer, the following is StefanPochmann's answer:
+Take a look at others' answer, the following is StefanPochmann's answer, A REALLY GOD.....
+------------------------------------------------------------------------------------------------------------------------
 p is the parenthesis-string built so far, left and right tell the number of left and right parentheses still to add,
 and parens collects the parentheses.
 
@@ -84,6 +85,22 @@ class Solution:
             self._generateor(newStr, curNum+1, n, gather)
 
 
+def generateParenthesis(n):
+    def generate(p, left, right, parens=[]):
+        if left:
+            print('current p: %s, add "(" as %s' % (p, p+'('))
+            generate(p + '(', left-1, right)
+        if right > left:
+            print('current p: %s, add ")" as %s' % (p, p + ')'))
+            generate(p + ')', left, right-1)
+        if not right:
+            parens += p,
+        return parens
+    return generate('', n, n)
+
+
 if __name__ == '__main__':
-    s = Solution()
-    print(s.generateParenthesis(3))
+    # s = Solution()
+    # print(s.generateParenthesis(3))
+
+    print(generateParenthesis(3))
