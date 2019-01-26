@@ -9,6 +9,9 @@ Note:
 
 Your algorithm should use only constant extra space.
 You may not modify the values in the list's nodes, only nodes itself may be changed.
+
+Runtime: 48 ms, faster than 30.72% of Python3 online submissions for Swap Nodes in Pairs.
+Emm... Not so fast as I think, but I reckoned the solution is pretty clear.
 """
 
 
@@ -24,3 +27,26 @@ class Solution:
         :type head: ListNode
         :rtype: ListNode
         """
+        cur = head
+        tail = None
+        while cur and cur.next:
+            if cur is head:
+                head = cur.next
+
+            third = cur.next.next
+            nextHead = cur.next
+            cur.next.next = cur
+            cur.next = third
+
+            if tail:
+                tail.next = nextHead
+
+            tail = cur
+            cur = cur.next
+
+        return head
+
+
+if __name__ == '__main__':
+    s = Solution()
+    print(s.swapPairs())
