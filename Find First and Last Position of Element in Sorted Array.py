@@ -14,11 +14,9 @@ Example 2:
 
 Input: nums = [5,7,7,8,8,10], target = 6
 Output: [-1,-1]
-<<<<<<< HEAD
-=======
+
 
 Quite easy, with some extention of binary search
->>>>>>> ff4b9ea9ed37b68a12094c7ea7a1b3ee44022673
 """
 
 
@@ -31,12 +29,6 @@ class Solution:
         """
         head, tail = 0, len(nums)-1
         while head <= tail:
-<<<<<<< HEAD
-
-
-
-            
-=======
             pivot = (head+tail) // 2
             if nums[pivot] > target:
                 tail = pivot - 1
@@ -51,4 +43,3 @@ class Solution:
                 return [lower, upper]
             
         return [-1,-1]
->>>>>>> ff4b9ea9ed37b68a12094c7ea7a1b3ee44022673
