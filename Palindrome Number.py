@@ -25,5 +25,6 @@ class Solution:
             j -= 1
         return True
 
+
 if __name__ == '__main__':
     pass

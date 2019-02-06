@@ -1,3 +1,5 @@
+# encoding=utf8
+
 """
 Description 28
 Implement strStr().
@@ -32,20 +34,8 @@ Finite automation       O(m|∑|)                        Θ(n)
 Knuth-Morris-Pratt      Θ(m)                           Θ(n)
 
 The key thing is, when the pattern is not matched, we preprocess the max valid shift, that save quite a lot comparison
+Π[q] = max{k : k < q and Pk suffix to Pq}
 """
-
-
-def computePrefix(needle):
-    """ What a master of dynamic programming!!! """
-    shift = [0] * len(needle)
-    k = 0
-    for q in range(1, len(needle)):
-        while k > 0 and needle[k + 1] != needle[q]:
-            k = shift[k]
-        if needle[k + 1] == needle[q]:
-            k += 1
-        shift[q] = k
-    return shift
 
 
 class Solution:
@@ -61,10 +51,10 @@ class Solution:
         shift = self.computePrefix(needle)
         q = 0
         for i in range(len(haystack)):
-            while q > 0 and needle[q+1] != haystack[i]:
-                q = shift[q]
+            while q > 0 and needle[q] != haystack[i]:
+                q = shift[q-1]
 
-            if needle[q+1] == haystack[i]:
+            if needle[q] == haystack[i]:
                 q += 1
 
             if q == len(needle):
@@ -73,13 +63,12 @@ class Solution:
             return -1
 
     def computePrefix(self, needle):
-        """ What a master of dynamic programming!!! """
         shift = [0] * len(needle)
-        k = 0
+        k = 0                                   # number of characters matched
         for q in range(1, len(needle)):
-            while k > 0 and needle[k + 1] != needle[q]:
-                k = shift[k]
-            if needle[k+1] == needle[q]:
+            while k > 0 and needle[k] != needle[q]:
+                k = shift[k-1]                    # next character does not match
+            if needle[k] == needle[q]:
                 k += 1
             shift[q] = k
         return shift
@@ -87,5 +76,4 @@ class Solution:
 
 if __name__ == '__main__':
     s = Solution()
-    print(computePrefix("ababaca"))
-    # print(s.strStr("mississippi", "issip"))
+    print(s.strStr("aaaaa", "bba"))
