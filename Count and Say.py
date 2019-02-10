@@ -36,7 +36,7 @@ class Solution:
         :type n: int
         :rtype: str
         """
-		count, data = 1, '1'
+        count, data = 1, '1'
         while count < n:
             new_data = ''
             num, head = 1, data[0]

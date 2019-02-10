@@ -16,7 +16,7 @@ class Solution:
         :type board: List[List[str]]
         :rtype: bool
         """
-		row_validator = {}
+        row_validator = {}
         col_validator = {}
         box_validator = {}
         
