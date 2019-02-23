@@ -34,6 +34,11 @@ Follow up:
 A straight forward solution using O(mn) space is probably a bad idea.
 A simple improvement uses O(m + n) space, but still not the best solution.
 Could you devise a constant space solution?
+
+执行用时: 116 ms, 在Set Matrix Zeroes的Python3提交中击败了79.55% 的用户
+内存消耗: 7.1 MB, 在Set Matrix Zeroes的Python3提交中击败了68.60% 的用户
+
+Use the call stack to keep the setting zero infomation, but it seems not very well.
 """
 
 
@@ -43,4 +48,39 @@ class Solution:
         :type matrix: List[List[int]]
         :rtype: void Do not return anything, modify matrix in-place instead.
         """
-        pass
+        self.solve(matrix, 0, 0)
+        return matrix
+
+    def solve(self, matrix, row, col):
+        if col >= len(matrix[0]):
+            col = 0
+            row += 1
+
+        if row >= len(matrix):
+            return
+
+        while row < len(matrix):
+            if matrix[row][col] != 0:
+                col += 1
+                if col >= len(matrix[0]):
+                    col = 0
+                    row += 1
+            else:
+                break
+        else:
+            return
+
+        self.solve(matrix, row, col+1)
+        print('set zero position (%s, %s)' % (row, col))
+        for i in range(len(matrix[0])):     # set row to zero
+            matrix[row][i] = 0
+
+        for i in range(len(matrix)):        # set col to zero
+            matrix[i][col] =0
+
+
+if __name__ == '__main__':
+    s = Solution()
+    print(s.setZeroes([
+        [[-1], [2], [3]]
+    ]))
