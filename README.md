@@ -10,3 +10,5 @@ programming language to describle our solutions. That means, observation really 
 Leetcode can practise the ability of observation, solution description ability, but,
 in practical, problems don't have a clear boundary, so still need to use other method to practise the ability about thinking in macro perspective, that is so called architecture ability, do something that deal with some practical problems or read about
 elegent open source are kinda of good methods.
+
+***Geniuses are those who can observe from every bizzare pespective***
