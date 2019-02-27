@@ -25,6 +25,10 @@ target is in array. That makes trivial condition judgement.
 The fact is, when you notice the binary search condition processing, you can easily modify the procedure of
 binary searching, almost get there, but without deeper thinking, I discard the clue.
 
+Analysis:
+The quite same as No.33, not notice that even the order is splited by two partition, you can still judge the
+middle point position, and it must be one part that from this head/tail to middle, all the numbers are
+perfectly sorted. Just forget the useful information.
 """
 
 class Solution:
