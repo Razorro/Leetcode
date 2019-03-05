@@ -12,3 +12,9 @@ in practical, problems don't have a clear boundary, so still need to use other m
 elegent open source are kinda of good methods.
 
 ***Geniuses are those who can observe from every bizzare pespective***
+
+
+### Some kind of worry
+For now, the 100 problems are done(although passed some hard problems), the development work
+can't be finished just with algorithm knowledge. 
+For the next section, just use practical project to make vision more abundant.

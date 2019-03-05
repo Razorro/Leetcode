@@ -93,7 +93,6 @@ class Solution:
                 # forget to use the sorted condition...
                 if target < nums[curIdx]*(4-len(gather)) or target > nums[-1]*(4-len(gather)):
                     return
-                # forget to use the sorted condition...
 
                 gather.append(nums[curIdx])
                 _fourSum(nums, curIdx+1, coll, gather, target-nums[curIdx])
