@@ -22,7 +22,7 @@ No other trick, use the devide and conquer
 
 
 class Solution:
-    def maxDepth(self, root: TreeNode) -> int:
+    def maxDepth(self, root: 'TreeNode') -> int:
         return self.trigger(root)
 
     def trigger(self, root):
